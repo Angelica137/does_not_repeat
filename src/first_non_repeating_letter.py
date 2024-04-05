@@ -1,11 +1,8 @@
 def first_non_repeating_letter(word: str) -> str:
     count = {}
     for char in word:
-        char = char.lower()
-        if char in count:
-            count[char] += 1
-        else:
-            count[char] = 1
+        lower_char = char.lower()
+        count[lower_char] = count.get(lower_char, 0) + 1
     for char in word:
         if count[char.lower()] == 1:
             return char
